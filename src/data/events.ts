@@ -72,9 +72,9 @@ export const events2026: Event[] = [
     id: "7",
     title: "AI·ICT Convergence Korea 2026",
     description: "ICT 융합 및 신기술 전망을 다루는 국가 주도 기술 행사입니다.",
-    startDate: new Date(2026, 8, 0),
-    endDate: new Date(2026, 8, 0),
-    location: "서울 (예정)",
+    startDate: new Date(2026, 3, 1),
+    endDate: new Date(2026, 3, 2),
+    location: "서울 한국과학기술회관 1관 지하1층",
     website: "https://ictkorea.org/",
     category: "conference",
     tags: ["ICT", "Convergence", "Technology"]
@@ -89,26 +89,6 @@ export const events2026: Event[] = [
     website: "https://www.itce.kr/",
     category: "expo",
     tags: ["ICT", "Expo", "Innovation"]
-  },
-  {
-    id: "9",
-    title: "AI·ICT 산업·기술전망 컨퍼런스 2026",
-    description: "AI·ICT 기술 전망과 산업 전략을 논의하는 컨퍼런스입니다.",
-    startDate: new Date(2026, 10, 11),
-    endDate: new Date(2026, 10, 14),
-    location: "서울 (예정)",
-    category: "conference",
-    tags: ["AI", "ICT", "Strategy"]
-  },
-  {
-    id: "10",
-    title: "International Symposium on Performance Analysis of Systems and Software",
-    description: "컴퓨터 시스템 및 소프트웨어 성능 분석에 관한 국제 심포지엄입니다.",
-    startDate: new Date(2026, 3, 26),
-    endDate: new Date(2026, 3, 28),
-    location: "서울 (예정)",
-    category: "conference",
-    tags: ["Systems", "Software", "Conference"]
   }
 ];
 
