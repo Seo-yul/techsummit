@@ -56,17 +56,36 @@ const theme = createTheme({
       '"Segoe UI Symbol"',
     ].join(','),
     h4: {
-      fontWeight: 600,
+      fontWeight: 700,
+      letterSpacing: '-0.02em',
     },
     h5: {
-      fontWeight: 600,
+      fontWeight: 700,
+      letterSpacing: '-0.01em',
     },
     h6: {
-      fontWeight: 600,
+      fontWeight: 700,
+      letterSpacing: '-0.01em',
     },
   },
   shape: {
-    borderRadius: 8,
+    borderRadius: 12,
+  },
+  components: {
+    MuiCard: {
+      styleOverrides: {
+        root: {
+          borderRadius: 12,
+        },
+      },
+    },
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          borderRadius: 12,
+        },
+      },
+    },
   },
 });
 
@@ -79,7 +98,7 @@ function App() {
         maxWidth="lg" 
         className="taegeuk-pattern"
         sx={{ 
-          py: 4,
+          py: { xs: 3, sm: 6 },
           position: 'relative',
           zIndex: 1,
         }}

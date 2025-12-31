@@ -168,29 +168,52 @@ body::after {
   color: #6B8E9F;
 }
 
-/* 수묵 스타일 카드 */
+/* 모던 스타일 카드 */
 .ink-style-card {
   background: #FFFFFF;
-  border: 1px solid #E8E3D8;
+  border: 1px solid rgba(232, 227, 216, 0.5);
   box-shadow: 
-    0 2px 8px rgba(0, 0, 0, 0.05),
-    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    0 2px 8px rgba(0, 0, 0, 0.06),
+    0 1px 3px rgba(0, 0, 0, 0.04);
   position: relative;
+  overflow: hidden;
 }
 
 .ink-style-card::before {
   content: '';
   position: absolute;
-  top: -1px;
-  left: 10%;
-  right: 10%;
-  height: 1px;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: '2px';
   background: linear-gradient(
     to right,
     transparent,
-    rgba(139, 125, 107, 0.1) 50%,
+    rgba(201, 125, 96, 0.2) 50%,
     transparent
   );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.ink-style-card:hover::before {
+  opacity: 1;
+}
+
+/* 부드러운 페이드인 애니메이션 */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
 }
 
 /* 수묵 스타일 날짜 카드 */

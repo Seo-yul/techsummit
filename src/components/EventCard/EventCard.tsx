@@ -37,42 +37,58 @@ export const EventCard = ({ event }: EventCardProps) => {
 
   return (
     <Card
-      className="ink-style-card"
+      className="ink-style-card fade-in-up"
       sx={{
-        mb: 2,
+        mb: 3,
         backgroundColor: '#FFFFFF',
-        border: '1px solid #E8E3D8',
-        transition: 'all 0.3s ease',
-        boxShadow: '0 2px 8px rgba(0, 0, 0, 0.05)',
+        border: '1px solid rgba(232, 227, 216, 0.5)',
+        borderRadius: 3,
+        transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+        boxShadow: '0 2px 8px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04)',
         position: 'relative',
-        '&:hover': {
-          transform: 'translateY(-2px)',
-          boxShadow: '0 4px 16px rgba(0, 0, 0, 0.1)',
-          borderColor: categoryColors[event.category],
-        },
-        '&::after': {
+        overflow: 'hidden',
+        '&::before': {
           content: '""',
           position: 'absolute',
-          bottom: 0,
+          top: 0,
           left: 0,
-          width: '30%',
-          height: '2px',
-          background: `linear-gradient(to right, ${categoryColors[event.category]}, transparent)`,
+          width: '4px',
+          height: '100%',
+          background: `linear-gradient(to bottom, ${categoryColors[event.category]}, ${categoryColors[event.category]}80)`,
+          opacity: 0.8,
+        },
+        '&:hover': {
+          transform: 'translateY(-6px)',
+          boxShadow: `0 12px 32px rgba(0, 0, 0, 0.12), 0 4px 16px ${categoryColors[event.category]}30`,
+          borderColor: categoryColors[event.category],
+          '&::before': {
+            width: '5px',
+            opacity: 1,
+          },
         },
       }}
     >
-      <CardContent>
+      <CardContent sx={{ pl: 3, pt: 2.5, pb: 2.5 }}>
         <Box 
-          className="red-accent-line"
           sx={{ 
             display: 'flex', 
             justifyContent: 'space-between', 
             alignItems: 'flex-start', 
-            mb: 1,
-            position: 'relative',
+            mb: 2,
+            gap: 2,
           }}
         >
-          <Typography variant="h6" component="h3" sx={{ fontWeight: 600, flex: 1 }}>
+          <Typography 
+            variant="h6" 
+            component="h3" 
+            sx={{ 
+              fontWeight: 700, 
+              flex: 1,
+              fontSize: { xs: '1rem', sm: '1.25rem' },
+              lineHeight: 1.4,
+              color: '#3A3A3A',
+            }}
+          >
             {event.title}
           </Typography>
           <Chip
@@ -81,31 +97,55 @@ export const EventCard = ({ event }: EventCardProps) => {
             sx={{
               backgroundColor: categoryColors[event.category],
               color: '#FFFFFF',
-              fontWeight: 500,
+              fontWeight: 600,
+              fontSize: '0.75rem',
+              height: '28px',
+              boxShadow: `0 2px 8px ${categoryColors[event.category]}40`,
+              flexShrink: 0,
             }}
           />
         </Box>
 
-        <Box sx={{ display: 'flex', alignItems: 'center', mb: 1, color: 'text.secondary' }}>
-          <CalendarToday sx={{ fontSize: 16, mr: 0.5, color: '#6B8E9F' }} />
-          <Typography variant="body2">
-            {isMultiDay
-              ? `${formatDate(event.startDate)} - ${formatDate(event.endDate)}`
-              : formatDate(event.startDate)}
-          </Typography>
+        <Box 
+          sx={{ 
+            display: 'flex', 
+            alignItems: 'center', 
+            mb: 1.5, 
+            color: 'text.secondary',
+            flexWrap: 'wrap',
+            gap: 1,
+          }}
+        >
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+            <CalendarToday sx={{ fontSize: 18, color: '#6B8E9F' }} />
+            <Typography variant="body2" sx={{ fontWeight: 500 }}>
+              {isMultiDay
+                ? `${formatDate(event.startDate)} - ${formatDate(event.endDate)}`
+                : formatDate(event.startDate)}
+            </Typography>
+          </Box>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+            <LocationOn sx={{ fontSize: 18, color: '#C97D60' }} />
+            <Typography variant="body2" sx={{ fontWeight: 500 }}>
+              {event.location}
+            </Typography>
+          </Box>
         </Box>
 
-        <Box sx={{ display: 'flex', alignItems: 'center', mb: 1.5, color: 'text.secondary' }}>
-          <LocationOn sx={{ fontSize: 16, mr: 0.5, color: '#C97D60' }} />
-          <Typography variant="body2">{event.location}</Typography>
-        </Box>
-
-        <Typography variant="body2" color="text.secondary" sx={{ mb: 1.5 }}>
+        <Typography 
+          variant="body2" 
+          color="text.secondary" 
+          sx={{ 
+            mb: 2,
+            lineHeight: 1.7,
+            fontSize: '0.9375rem',
+          }}
+        >
           {event.description}
         </Typography>
 
         {event.tags && event.tags.length > 0 && (
-          <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5, mb: 1.5 }}>
+          <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.75, mb: 2 }}>
             {event.tags.map((tag) => (
               <Chip 
                 key={tag} 
@@ -115,11 +155,16 @@ export const EventCard = ({ event }: EventCardProps) => {
                 sx={{
                   borderColor: '#6B8E9F',
                   color: '#6B8E9F',
-                  backgroundColor: 'transparent',
+                  backgroundColor: 'rgba(107, 142, 159, 0.05)',
+                  fontWeight: 500,
+                  fontSize: '0.75rem',
+                  height: '26px',
+                  transition: 'all 0.3s ease',
                   '&:hover': {
-                    backgroundColor: '#6B8E9F15',
+                    backgroundColor: 'rgba(201, 125, 96, 0.1)',
                     borderColor: '#C97D60',
                     color: '#C97D60',
+                    transform: 'scale(1.05)',
                   },
                 }}
               />
@@ -135,16 +180,27 @@ export const EventCard = ({ event }: EventCardProps) => {
             sx={{
               display: 'inline-flex',
               alignItems: 'center',
+              gap: 0.5,
               textDecoration: 'none',
               color: '#6B8E9F',
+              fontWeight: 600,
+              fontSize: '0.875rem',
+              px: 1.5,
+              py: 0.75,
+              borderRadius: 2,
+              backgroundColor: 'rgba(107, 142, 159, 0.05)',
+              transition: 'all 0.3s ease',
               '&:hover': { 
-                textDecoration: 'underline',
+                backgroundColor: 'rgba(201, 125, 96, 0.1)',
                 color: '#C97D60',
+                transform: 'translateX(4px)',
               },
             }}
           >
-            <Language sx={{ fontSize: 16, mr: 0.5, color: '#6B8E9F' }} />
-            <Typography variant="body2">공식 웹사이트</Typography>
+            <Language sx={{ fontSize: 18 }} />
+            <Typography variant="body2" sx={{ fontWeight: 600 }}>
+              공식 웹사이트
+            </Typography>
           </Link>
         )}
       </CardContent>
