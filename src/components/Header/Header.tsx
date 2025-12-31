@@ -1,4 +1,5 @@
-import { AppBar, Toolbar, Typography, Box } from '@mui/material';
+import { AppBar, Toolbar, Typography, Box, Button } from '@mui/material';
+import { GitHub } from '@mui/icons-material';
 import { Taegeuk } from '../SVG/Taegeuk';
 
 export const Header = () => {
@@ -52,6 +53,31 @@ export const Header = () => {
         >
           행사 달력
         </Typography>
+        <Button
+          component="a"
+          href="https://github.com/Seo-yul/techsummit/issues/new"
+          target="_blank"
+          rel="noopener noreferrer"
+          startIcon={<GitHub />}
+          sx={{
+            color: '#3A3A3A',
+            fontWeight: 500,
+            fontSize: '0.875rem',
+            textTransform: 'none',
+            px: 2,
+            py: 0.5,
+            borderRadius: '20px',
+            transition: 'all 0.3s ease',
+            mr: 2,
+            '&:hover': {
+              color: '#C97D60',
+              backgroundColor: 'rgba(201, 125, 96, 0.1)',
+              transform: 'translateY(-1px)',
+            },
+          }}
+        >
+          행사 제보
+        </Button>
         <Box 
           sx={{ 
             display: { xs: 'none', sm: 'block' },
