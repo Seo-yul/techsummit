@@ -55,7 +55,7 @@ export const Header = () => {
         </Typography>
         <Button
           component="a"
-          href="https://github.com/Seo-yul/techsummit/issues/new"
+          href="https://github.com/Seo-yul/techsummit/issues/new?template=new-event-registration.md"
           target="_blank"
           rel="noopener noreferrer"
           startIcon={<GitHub />}
