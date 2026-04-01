@@ -3,22 +3,27 @@ import './App.css';
 function App() {
   return (
     <div className="app">
+      <header className="topbar">
+        <span className="topbar-label">Cloud Native Ecosystem</span>
+        <span className="topbar-year">2026</span>
+      </header>
+
       <section className="hero">
-        <div className="hero-bg">
-          <div className="blob blob-1" />
-          <div className="blob blob-2" />
-          <div className="blob blob-3" />
-          <div className="blob blob-4" />
-          <div className="blob blob-5" />
-        </div>
-        <div className="grain" />
-        <div className="hero-content">
+        <div className="hero-inner">
           <h1 className="hero-title">
-            <span className="hero-line line-1">대한민국의</span>
-            <span className="hero-line line-2">모든 테크 행사를</span>
-            <span className="hero-line line-3">응원합니다.</span>
+            <span className="line line-1">Build Anywhere,</span>
+            <span className="line line-2">Run Everywhere.</span>
           </h1>
-          <p className="hero-sub">We cheer for every tech event in Korea</p>
+          <ul className="agnostic-list">
+            <li className="agnostic-item ag-1">Vendor-Agnostic.</li>
+            <li className="agnostic-item ag-2">Platform-Agnostic.</li>
+            <li className="agnostic-item ag-3">Model-Agnostic.</li>
+          </ul>
+          <div className="hero-divider" />
+          <p className="hero-desc">
+            특정 벤더에 종속되지 않는 클라우드 네이티브 생태계.<br />
+            <em>표준 위에서 구축하고, 어디서든 실행한다.</em>
+          </p>
         </div>
       </section>
     </div>
